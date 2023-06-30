@@ -15,7 +15,7 @@ import "leaflet/dist/leaflet.css";
 import "../app.scss";
 import { MainMapType } from "../types/MainMapTypes";
 
-// import { antarcticaPolygons } from "../data/antarcticaPolygons";
+import { antarcticaPolygons } from "../data/antarcticaPolygons";
 
 // евразия
 // import { kazakhstanPolygons } from "../data/kazakhstanPolygons";
@@ -494,7 +494,7 @@ import { MainMapType } from "../types/MainMapTypes";
 
 export const MainMap: FC<MainMapType> = ({ isDarkTheme }) => {
   const dbbase = [
-    // antarcticaPolygons,
+    antarcticaPolygons,
     // luxembourgPolygons,
     // kazakhstanPolygons,
     // japan1Polygons,
@@ -1077,6 +1077,7 @@ export const MainMap: FC<MainMapType> = ({ isDarkTheme }) => {
         ) : (
           // main
           <TileLayer url="http://mt0.google.com/vt/lyrs=s,h&hl=en&x={x}&y={y}&z={z}&s=Ga" />
+          // <TileLayer url="https://api.mapbox.com/styles/v1/mapooze/clhrs78wc002j01pnghet7uvg/tiles/{z}/{x}/{y}?access_token=pk.eyJ1IjoibWFwb296ZSIsImEiOiJjbGh5d3lxZWswMDU4M251bmx0MHd4MnFwIn0.3LdPAXjgyAYXvYQKu5mtDA" />
 
           // prod
           // <TileLayer url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png" />

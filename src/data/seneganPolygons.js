@@ -1,7 +1,7 @@
 export const seneganPolygons = {
   type: "FeatureCollection",
   features: [ 
-    // Дакар
+    // Дакар 
     {
       type: "GeometryCollection",
       geometries: [
