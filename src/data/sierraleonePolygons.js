@@ -1,7 +1,7 @@
 export const sierraleonePolygons = {
   type: "FeatureCollection",
   features: [
-    // Западная область Western Area 
+    // Западная область Western Area  
     {
       type: "GeometryCollection",
       geometries: [

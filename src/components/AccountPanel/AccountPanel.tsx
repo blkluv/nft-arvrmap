@@ -10,12 +10,13 @@ import { Exchange } from "./Exchange/Exchange";
 import { FullTable } from "./Exchange/FullTable";
 import { FullTableRent } from "./Rent/FullTableRent";
 import { Rent } from "./Rent/Rent";
-import { Lands } from "./Lands/Lands";
 import { Analytics } from "./Analytics/Analytics";
 import { MyBids } from "./Auction/MyBids/MyBids";
 import cn from "clsx";
 import { WinningBids } from "./Auction/WinningBids/WinningBids";
 import { Auction } from "./Auction/Auction";
+import { LandItem } from "./Lands/LandItem";
+import { Lands } from "./Lands/Lands";
 
 export const AccountPanel: FC<AccountPanelType> = ({ isOpenAside }) => {
   const [isSureLogOut, setSureLogOut] = useState(false);
@@ -408,7 +409,11 @@ export const AccountPanel: FC<AccountPanelType> = ({ isOpenAside }) => {
                     </NavLink>
                   ) : (
                     <NavLink
-                      className="account__item"
+                      className={({ isActive }) =>
+                        isActive
+                          ? "account__item account__item--active"
+                          : "account__item"
+                      }
                       key={idx}
                       onClick={() => {
                         setDropdown((prev) => ({
@@ -567,6 +572,7 @@ export const AccountPanel: FC<AccountPanelType> = ({ isOpenAside }) => {
                 path="/lands"
                 element={<Lands setOpenBar={setOpenBar} />}
               />
+              <Route path="/lands/:id" element={<LandItem />} />
               <Route
                 path="/analytics"
                 element={<Analytics setOpenBar={setOpenBar} />}

@@ -4,7 +4,7 @@ export const somaliaPolygons = {
     // Аудаль 
     {
       type: "GeometryCollection",
-      geometries: [
+      geometries: [ 
         {
           type: "MultiPolygon",
           coordinates: [

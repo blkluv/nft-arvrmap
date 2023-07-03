@@ -7,7 +7,7 @@ export const sinteustatiusandsabaPolygons = {
       geometries: [
         {
           type: "MultiPolygon",
-          coordinates: [
+          coordinates: [ 
             [
               [
                 [-69.1619283, 12.3791321],

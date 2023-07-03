@@ -4,7 +4,7 @@ export const solomonislandsPolygons = {
     // Центральная провинция
     {
       type: "GeometryCollection",
-      geometries: [
+      geometries: [ 
         {
           type: "MultiPolygon",
           coordinates: [

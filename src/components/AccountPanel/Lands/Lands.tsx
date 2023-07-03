@@ -3,19 +3,12 @@ import { Link } from "react-router-dom";
 import "swiper/swiper-bundle.css";
 import { useAppSelector } from "../../../hooks/redux-hooks";
 import { LandsType } from "../../../types/AccountPanel/LandsTypes/LandsTypes";
-import { TopSection } from "./components/TopSection";
-import { Auction } from "./components/Auction";
-import { PriceToSell } from "./components/PriceToSell";
-import { ForRent } from "./components/ForRent";
-import { ForExchange } from "./components/ForExchange";
-import { Advertising } from "./components/Advertising";
 import { dataSocials } from "./lands.data";
-import { Personalization } from "./components/Personalization";
-import { PreviewMap } from "./components/PreviewMap";
+import { LandsBlock } from './LandsBlock';
+
 
 export const Lands: FC<LandsType> = ({ setOpenBar }) => {
   const { isMobile } = useAppSelector((state) => state.mainPanelReducer);
-
   const [isActiveList, setActiveList] = useState(false);
   const [selectSocial, setSelectSocial] = useState<null | number>(null);
 
@@ -23,10 +16,6 @@ export const Lands: FC<LandsType> = ({ setOpenBar }) => {
     setActiveList(false);
     setSelectSocial(idx);
   };
-
-  const [isPreviewMode, setPreviewMode] = useState<boolean>(false);
-
-  const [selectFont, setSelectFont] = useState<null | number>(null);
 
   return (
     <div className="exchange saleplace addwallet">
@@ -51,7 +40,7 @@ export const Lands: FC<LandsType> = ({ setOpenBar }) => {
       )}
       <div className="addwallet__mob-title">My Lands</div>
       <div className="addwallet__error-title addwallet__error-title--active">
-        You can edit land information. Don’t forgot to click “Save”
+        You can choose and edit land information. Don’t forgot to click “Save”
         <Link className="account__close" to="/">
           <svg
             width="24"
@@ -119,51 +108,20 @@ export const Lands: FC<LandsType> = ({ setOpenBar }) => {
               </ul>
             )}
           </div>
-          <div className="lands__top-title">
-            <svg
-              width="25"
-              height="25"
-              viewBox="0 0 25 25"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M12.1 22.05C12.2333 22.1 12.3667 22.125 12.5 22.125C12.6333 22.125 12.7667 22.1 12.9 22.05C13.0333 22 13.15 21.9333 13.25 21.85C15.6833 19.7 17.5 17.7043 18.7 15.863C19.9 14.021 20.5 12.3 20.5 10.7C20.5 8.2 19.6957 6.20833 18.087 4.725C16.479 3.24167 14.6167 2.5 12.5 2.5C10.3833 2.5 8.521 3.24167 6.913 4.725C5.30433 6.20833 4.5 8.2 4.5 10.7C4.5 12.3 5.1 14.021 6.3 15.863C7.5 17.7043 9.31667 19.7 11.75 21.85C11.85 21.9333 11.9667 22 12.1 22.05Z"
-                fill="white"
-              />
-              <path
-                d="M12.5 15.5C13.4333 15.5 14.275 15.2707 15.025 14.812C15.775 14.354 16.3667 13.75 16.8 13C16.2167 12.5167 15.5583 12.1457 14.825 11.887C14.0917 11.629 13.3167 11.5 12.5 11.5C11.6833 11.5 10.9083 11.629 10.175 11.887C9.44167 12.1457 8.78333 12.5167 8.2 13C8.63333 13.75 9.225 14.354 9.975 14.812C10.725 15.2707 11.5667 15.5 12.5 15.5ZM12.5 10.5C13.05 10.5 13.521 10.304 13.913 9.912C14.3043 9.52067 14.5 9.05 14.5 8.5C14.5 7.95 14.3043 7.47933 13.913 7.088C13.521 6.696 13.05 6.5 12.5 6.5C11.95 6.5 11.4793 6.696 11.088 7.088C10.696 7.47933 10.5 7.95 10.5 8.5C10.5 9.05 10.696 9.52067 11.088 9.912C11.4793 10.304 11.95 10.5 12.5 10.5ZM12.5 22.125C12.3667 22.125 12.2333 22.1 12.1 22.05C11.9667 22 11.85 21.9333 11.75 21.85C9.31667 19.7 7.5 17.7043 6.3 15.863C5.1 14.021 4.5 12.3 4.5 10.7C4.5 8.2 5.30433 6.20833 6.913 4.725C8.521 3.24167 10.3833 2.5 12.5 2.5C14.6167 2.5 16.479 3.24167 18.087 4.725C19.6957 6.20833 20.5 8.2 20.5 10.7C20.5 12.3 19.9 14.021 18.7 15.863C17.5 17.7043 15.6833 19.7 13.25 21.85C13.15 21.9333 13.0333 22 12.9 22.05C12.7667 22.1 12.6333 22.125 12.5 22.125Z"
-                fill="#29ABE2"
-              />
-            </svg>
-            Germany, Berlin
+
+          <div className="exchange__top-subtitle">
+            Total Value
+            <span>3.023.579</span>
           </div>
         </div>
-        {isPreviewMode ? (
-          <PreviewMap setPreviewMode={setPreviewMode} />
-        ) : (
-          <>
-            <TopSection />
-            <div className="lands__section lands__section--second">
-              <Auction />
-              <PriceToSell />
-              <ForExchange />
-              <ForRent />
-              <Advertising />
-            </div>
-          </>
-        )}
-
-        <div className="lands__section lands__section--third">
-          <Personalization
-            selectFont={selectFont}
-            setSelectFont={setSelectFont}
-            setPreviewMode={setPreviewMode}
-          />
+        <div className="lands__items">
+          <LandsBlock />
+          <LandsBlock />
+          <LandsBlock />
+          <LandsBlock />
+          <LandsBlock />
+          <LandsBlock />
         </div>
-        <button className="loginpanel__button lands__button-save" type="submit">
-          Save
-        </button>
       </div>
     </div>
   );

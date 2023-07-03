@@ -15,7 +15,7 @@ import "leaflet/dist/leaflet.css";
 import "../app.scss";
 import { MainMapType } from "../types/MainMapTypes";
 
-import { antarcticaPolygons } from "../data/antarcticaPolygons";
+// import { antarcticaPolygons } from "../data/antarcticaPolygons";
 
 // евразия
 // import { kazakhstanPolygons } from "../data/kazakhstanPolygons";
@@ -494,7 +494,7 @@ import { antarcticaPolygons } from "../data/antarcticaPolygons";
 
 export const MainMap: FC<MainMapType> = ({ isDarkTheme }) => {
   const dbbase = [
-    antarcticaPolygons,
+    // antarcticaPolygons,
     // luxembourgPolygons,
     // kazakhstanPolygons,
     // japan1Polygons,

@@ -88,6 +88,36 @@ export const dataSocials = [
     item: " Reine, Norway 6",
   },
 ];
+export const dataMarkers = [
+  {
+    id: 0,
+    item: "",
+  },
+  {
+    id: 1,
+    item: "Marker 1",
+  },
+  {
+    id: 2,
+    item: "Marker 2",
+  },
+  {
+    id: 3,
+    item: "Marker 3",
+  },
+  {
+    id: 4,
+    item: "Marker 4",
+  },
+  {
+    id: 5,
+    item: "Marker 5",
+  },
+  {
+    id: 6,
+    item: "Marker 6",
+  },
+];
 export const dataLands = [
   {
     id: 0,

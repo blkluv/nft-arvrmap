@@ -1,86 +1,9 @@
 import { FC, useState } from "react";
-import { dataSocials } from "../components/AccountPanel/Exchange/exchange.data";
-import { Link } from "react-router-dom";
 
 export const TopForLands: FC = () => {
-  const [isActiveList, setActiveList] = useState(false);
-  const [selectSocial, setSelectSocial] = useState<null | number>(null);
-
-  const selectHandler = (idx: number) => {
-    setActiveList(false);
-    setSelectSocial(idx);
-  };
 
   return (
     <div className="exchange__top">
-      <div
-        className="saleplace__general-trial saleplace__general-trial-select exchange__select"
-        style={{ maxWidth: 290 }}
-      >
-        <div
-          className="saleplace__general-trial-inputbox saleplace__general-select"
-          onClick={() => setActiveList(true)}
-        >
-          <span
-            className={
-              isActiveList || selectSocial
-                ? "addwallet__span addwallet__span--active"
-                : "addwallet__span"
-            }
-          >
-            Select the Land
-          </span>
-          <svg
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M11.3625 14.3L8.76251 11.7C8.44585 11.3833 8.37518 11.021 8.55051 10.613C8.72585 10.205 9.03818 10.0007 9.48751 10H14.6375C15.0875 10 15.4002 10.2043 15.5755 10.613C15.7508 11.0217 15.6798 11.384 15.3625 11.7L12.7625 14.3C12.6625 14.4 12.5542 14.475 12.4375 14.525C12.3208 14.575 12.1958 14.6 12.0625 14.6C11.9292 14.6 11.8042 14.575 11.6875 14.525C11.5708 14.475 11.4625 14.4 11.3625 14.3Z"
-              fill="#29ABE2"
-            />
-          </svg>
-          {!!selectSocial && (
-            <div className="addwallet__select-title">
-              {dataSocials[selectSocial].item}
-            </div>
-          )}
-        </div>
-        {isActiveList && (
-          <ul className="saleplace__general-select-list addwallet__list exchange__list">
-            {dataSocials.map((el, idx) => (
-              <li
-                className={
-                  selectSocial === idx
-                    ? "saleplace__general-select-item saleplace__general-select-item--active"
-                    : "saleplace__general-select-item"
-                }
-                onClick={() => selectHandler(idx)}
-                key={idx}
-              >
-                {el.item}
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-      <Link className="exchange__top-btn" to="/account/exchange/fulltable">
-        <svg
-          width="24"
-          height="25"
-          viewBox="0 0 24 25"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M20 21.5H5C4.45 21.5 3.979 21.304 3.587 20.912C3.195 20.52 2.99934 20.0493 3 19.5V5.5C3 4.95 3.196 4.479 3.588 4.087C3.98 3.695 4.45067 3.49934 5 3.5H20C20.55 3.5 21.021 3.696 21.413 4.088C21.805 4.48 22.0007 4.95067 22 5.5V19.5C22 20.05 21.804 20.521 21.412 20.913C21.02 21.305 20.5493 21.5007 20 21.5ZM5 8.5H20V5.5H5V8.5ZM8 10.5H5V19.5H8V10.5ZM17 10.5V19.5H20V10.5H17ZM15 10.5H10V19.5H15V10.5Z"
-            fill="#29ABE2"
-          />
-        </svg>
-        <div className="exchange__top-btn-title">Full Table</div>
-      </Link>
       <div className="lands__top-title">
         <svg
           width="25"
